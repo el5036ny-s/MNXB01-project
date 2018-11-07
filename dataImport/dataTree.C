@@ -67,7 +67,6 @@ void RootImport(char inputFilePath[40])
     TString dayStr(helpStr(8,10));
     Int_t day = dayStr.Atoi();
     
-    cout << helpStr << " ::: " << year << ", " << month << ", " << TimeStr << endl;
     
     helpStr= TimeStr;
     TString hourString(helpStr(0,2));
@@ -84,7 +83,6 @@ void RootImport(char inputFilePath[40])
       
     tree->Fill();
     
-    if(n > 500) { break; }
     n++;
   }
   
