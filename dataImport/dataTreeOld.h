@@ -1,7 +1,7 @@
 
 #include <TObject.h>
 
-class MyClass : public TObject {
+class MyEvent : public TObject {
 	private:
 	
 		Int_t year;
@@ -12,28 +12,37 @@ class MyClass : public TObject {
 		
 		Double_t temp;
 		
-		Int_t qCode;
+		char qCode;
 	
 	public:
 		
-		MyClass();
+		MyEvent();
 
-		ClassDef(MyClass, 6); // Help class	
+		ClassDef(MyEvent, 5); // Help class	
 		
 	
-		void SetDate(Int_t newYear, Int_t newMonth, Int_t newDay) {
-			year = newYear;
-			month = newMonth;
-			day = newDay;
+		void SetDate(Char_t Date[10]) {
+			char* dummyStr;
+			
+			dummyStr = strtok(Date, "-");
+			year = atoi(dummyStr);
+			
+			dummyStr = strtok(NULL, "-");
+			month = atoi(dummyStr);
+			
+			dummyStr = strtok(NULL, "-");
+			day = atoi(dummyStr);
 		
 		}
-		void SetTime(Int_t newTime) {
-			time = newTime;
+		void SetTime(Char_t Time[8]) {
+			char* dummyStr;
+			dummyStr = strtok(Time, ":");
+			time = atoi(dummyStr);
 		}
 		void SetTemp(Double_t newTemp) {
 			temp = newTemp;
 		}
-		void SetQCode(Int_t newQCode) { // 1 = G (OK), 0 = Y (Suspicious)
+		void SetQCode(char newQCode) {
 			qCode = newQCode;
 		}
 		
@@ -42,19 +51,19 @@ class MyClass : public TObject {
 		Int_t GetDay() { return day; }
 		Int_t GetTime() { return time; }
 		Double_t GetTemp() { return temp; }
-		Int_t GetQCode() { return qCode; }
+		char GetQCode() { return qCode; }
 	};
 
-ClassImp(MyClass)
+ClassImp(MyEvent)
 
-MyClass::MyClass():
+MyEvent::MyEvent():
 TObject(),
 	year(-1),
 	month(-1),
 	day(-1),
 	time(-1),
 	temp(-1000),
-	qCode(-1)
+	qCode('1')
 {
 
 // default constructor
