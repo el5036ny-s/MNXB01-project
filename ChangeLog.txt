@@ -1,6 +1,7 @@
 -- 5/11  --
 Added data files, code skeletons
 
-
+-- 7/11 -- 
+Finished data import module, created .root data file from the Karlstad dataset. 
 
 
