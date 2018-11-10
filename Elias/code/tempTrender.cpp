@@ -74,9 +74,13 @@ void tempTrender::dailyTempDiff(Int_t excludeBadData) {
 	}
 	
 	
-	TCanvas *c1 = new TCanvas("c1","Graph Draw Options",200,10,600,366);
+	TCanvas *c1 = new TCanvas("c1","Daily Temp Diff");
 
 	gr->SetFillColor(40);
+	gr->SetTitle("Temp difference between noon and midnight");
+	gr->GetHistogram()->GetXaxis()->SetTitle("Day of Year");
+	gr->GetHistogram()->GetYaxis()->SetTitle("DeltaT(Noon, Midnight)");
+	
 	gr->Draw("AB");
 	
 	f->Close();
