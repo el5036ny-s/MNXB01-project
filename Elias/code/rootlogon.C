@@ -10,6 +10,7 @@ void rootlogon() {
   gStyle->SetPadBottomMargin(0.16);
   gStyle->SetPadLeftMargin(0.16);
   
+  gROOT->ProcessLine(".L dataTree.h+");
   gROOT->ProcessLine(".L tempTrender.cpp+"); //Load the classes that we want to use automatically - Convenient!
   gROOT->ProcessLine(".L project.cpp+"); //The + means to recompile only if it changed sine last time
   //Now you can type project() to invoke the function defined in project

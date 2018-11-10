@@ -18,8 +18,24 @@ class MyClass : public TObject {
 		
 		MyClass();
 
-		ClassDef(MyClass, 6); // Help class	
+		ClassDef(MyClass, 7); // Help class	
 		
+		Int_t GetDayOfYear() {
+			if(month == '\0' | day == '\0') { return -1; } // If date not set, return -1
+			
+			Int_t N = (month - 1)*30;
+			N += day;
+			
+			// Take into account the different number of days in each month
+			if(month == 1 | month == 3){ return N; }
+			if(month == 2 | month == 4 | month == 5) { return N + 1; }
+			if(month == 6 | month == 7){ return N + 2; }
+			if(month == 8){ return N + 3; }
+			if(month == 9 | month == 10){ return N + 4; }
+			
+			return N + 5;
+		}
+	
 	
 		void SetDate(Int_t newYear, Int_t newMonth, Int_t newDay) {
 			year = newYear;
@@ -43,6 +59,9 @@ class MyClass : public TObject {
 		Int_t GetTime() { return time; }
 		Double_t GetTemp() { return temp; }
 		Int_t GetQCode() { return qCode; }
+		
+		
+		
 	};
 
 ClassImp(MyClass)
@@ -61,37 +80,3 @@ TObject(),
 
 };
 
-
-
-
-/*
-class MyTrack : public TObject {
-	public:
-	
-		Double_t fPhi;
-		MyTrack();
-		
-		ClassDef(MyTrack, 1);
-		
-		void SetfPhi(Double_t newfPhi) {
-			
-			fPhi = newfPhi;
-			
-		}
-		
-		Double_t GetfPhi() {
-			
-			return fPhi;
-			
-		}
-};
-
-ClassImp(MyTrack)
-
-MyTrack::MyTrack():
-TObject(),
-	fPhi(-1)
-{
-	// Constructor
-};
-*/
