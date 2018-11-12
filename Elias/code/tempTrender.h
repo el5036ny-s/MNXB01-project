@@ -22,14 +22,15 @@ using namespace std;
 class tempTrender {
 	public:
 	std::string dataFilePath;
-	
+
 	tempTrender(std::string filePath); //Construct using the specified file
 	~tempTrender() {} //Destructor
 
 	void dailyTempDiff(Int_t excludeBadData);
-	
+	void tempPerDay(Int_t excludeBadData);
+
 	private:
-	
+
 };
 
 
