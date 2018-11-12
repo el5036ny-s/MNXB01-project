@@ -7,14 +7,14 @@
 
 tempTrender::tempTrender(std::string filePath) {
 
-	cout << "Filepath: " << filePath << endl;
+	//cout << "Filepath: " << filePath << endl;
 	dataFilePath = filePath;
 }
 
 void tempTrender::dailyTempDiff(Int_t excludeBadData) {
 
 	// Open TTree from .root file.
-	TFile *f = TFile::Open("/home/courseuser/Downloads/MNXB01-project-master/datasets/tempDataKarlstad.root");
+	TFile *f = TFile::Open("/home/courseuser/git/eliasnyh/MNXB01-project/datasets/tempDataKarlstad.root");
 	TTree *dataTree = (TTree *) f->Get("tree");
 	TBranch *eventBranch  = dataTree->GetBranch("event");
 
@@ -92,7 +92,7 @@ void tempTrender::dailyTempDiff(Int_t excludeBadData) {
 void tempTrender::tempPerDay(Int_t excludeBadData) {
 
 	// Open TTree from .root file.
-	TFile *f = TFile::Open("/home/courseuser/Downloads/MNXB01-project-master/datasets/tempDataKarlstad.root");
+	TFile *f = TFile::Open("/home/courseuser/git/eliasnyh/MNXB01-project/datasets/tempDataKarlstad.root");
 	TTree *dataTree = (TTree *) f->Get("tree");
 	TBranch *eventBranch  = dataTree->GetBranch("event");
 
@@ -179,7 +179,7 @@ void tempTrender::tempPerDay(Int_t excludeBadData) {
 void tempTrender::tempDev(Int_t type) {
 
 	// Open TTree from .root file.
-	TFile *f = TFile::Open("/home/courseuser/MNXB01/MNXB01-project-master/datasets/tempDataKarlstad.root");
+	TFile *f = TFile::Open("/home/courseuser/git/eliasnyh/MNXB01-project/datasets/tempDataKarlstad.root");
 	TTree *dataTree = (TTree *) f->Get("tree");
 	TBranch *eventBranch  = dataTree->GetBranch("event");
 

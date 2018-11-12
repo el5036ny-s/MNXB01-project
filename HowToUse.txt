@@ -4,3 +4,4 @@ dataImport:
 In the dataImport folder, we have placed the module for converting data from .csv to .root. Run root inside this folder, and compile the macro by ".L dataTree.C+". Then you run the convert function by calling "RootImport(<filepath>)", where <filepath> is a string with the file path to the .csv file. This function will create a .root file in the dataImport folder, containing a TTree structure with the converted dataset.
 
 Plot functions:
+The macros for plotting are placed in the ../MNXB01-project/project-files/code folder. First, remove the comment from the corresponding plot function in the project.cpp file. You should also need to enter the file path to the .root dataset directly, into the code. You do this by changing lines 17, 95 and 182 in the tempTrender.cpp file (no, this is not very smooth). Then run root in this /code folder, and all functions should compile nicely. Now call "project()" to generate the chosen plot.
