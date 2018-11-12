@@ -1,0 +1,6 @@
+These are breif instructions on how to use our code. 
+
+dataImport:
+In the dataImport folder, we have placed the module for converting data from .csv to .root. Run root inside this folder, and compile the macro by ".L dataTree.C+". Then you run the convert function by calling "RootImport(<filepath>)", where <filepath> is a string with the file path to the .csv file. This function will create a .root file in the dataImport folder, containing a TTree structure with the converted dataset.
+
+Plot functions:

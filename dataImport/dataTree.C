@@ -16,7 +16,6 @@ void RootImport(char inputFilePath[40])
   TTree* tree = new TTree("tree", "Output tree");
   
 	
-  // char dummyTemp[8];
   
   char *dummyPtr;
   
@@ -27,7 +26,7 @@ void RootImport(char inputFilePath[40])
 	
   ifstream readFile(inputFilePath);
   
-  // First I read until I come to the line that starts with Datum
+  // Walk through the first couple of lines (which does not include datapoints)
 
   Char_t stream[200];
   while(!readFile.eof()) {
@@ -52,9 +51,7 @@ void RootImport(char inputFilePath[40])
     readFile.getline(DateStr, 40, ';');
     readFile.getline(TimeStr, 40, ';');
     readFile.getline(TempStr, 40, ';');
-    readFile.getline(QCodeStr, 200); // This will read the rest of the line so be careful nly to use the first character
-
-    // cout << DateStr << " - " << TimeStr << " - " << TempStr << " - " << QCodeStr  << endl;
+    readFile.getline(QCodeStr, 200); 
     
     
     TString helpStr(DateStr);

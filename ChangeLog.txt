@@ -6,3 +6,6 @@ Finished data import module, created .root data file from the Karlstad dataset.
 
 -- 10/11 --
 Finished dailyTempDiff part. Started working on .tex file for report.
+
+-- 12/11 --
+Finished remaining plot functions, report. Create "HowToUse.txt" which is brief documentation on how to use the modules.
