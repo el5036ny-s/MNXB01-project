@@ -28,6 +28,7 @@ class tempTrender {
 
 	void dailyTempDiff(Int_t excludeBadData);
 	void tempPerDay(Int_t excludeBadData);
+	void tempDev(Int_t type);
 
 	private:
 
